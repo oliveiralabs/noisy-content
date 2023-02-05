@@ -1,0 +1,9 @@
+
+# Remove .mp3 from all folders from current directory
+find . -maxdepth 1 -type d | rename 's\.mp3\\'
+
+# Rename version for files
+find . -maxdepth 1 | rename 's\.mp3\\'
+
+find . -name '*.mp3' -exec ffmpeg -i {} -c:a libvorbis -q:a 4 {}.ogg \; -exec rm {} \;
+
